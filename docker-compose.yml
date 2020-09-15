@@ -10,7 +10,7 @@ services:
             LOG_TIMESTAMP_FORMAT: "YYYY-MM-DD HH:mm:ss.SSS" 
             LOG_LEVEL: "debug" 
             DATABASE_FILEPATH: "/usr/src/app/dist/ssi.db" 
-            JWT_SECRET: "my\$ecreEtKeY@123" 
+            JWT_SECRET: "mysecreEtKeY@123" 
         # volumes:
         #    - core_db:/home/aeternity/node/data/mnesia
 
@@ -42,7 +42,7 @@ services:
             LOG_TIMESTAMP_FORMAT: "YYYY-MM-DD HH:mm:ss.SSS" 
             LOG_LEVEL: "debug" 
             DATABASE_FILEPATH: "/usr/src/app/dist/ssi.db" 
-            JWT_SECRET: "my\$ecreEtKeY@123" 
+            JWT_SECRET: "mysecreEtKeY@123" 
 
     studio-client:
         image: hypersignprotocol/studio-client:dev

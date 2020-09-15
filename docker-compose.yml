@@ -47,6 +47,8 @@ services:
             LOG_LEVEL: "debug" 
             DATABASE_FILEPATH: "/usr/src/app/dist/ssi.db" 
             JWT_SECRET: "mysecreEtKeY@123"
+        depends_on:
+            - core
         ports: 
             - '9000:9000'
      

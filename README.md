@@ -27,3 +27,9 @@
 ./stop.sh
 ```
 
+## Container size
+
+```bash
+ docker ps --size
+```
+

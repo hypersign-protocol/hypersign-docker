@@ -9,7 +9,7 @@ services:
             - JWT_SECRET=mysecreEtKeY@123
             - RECAPTCHA_SECRET=<YOUR RECAPTCHA SECRET>
         ports: 
-            - 'PORT:PORT'
+            - '5000:5000'
    
     studio-server:
         image: hypersignprotocol/studio-server:v1.0
@@ -19,6 +19,7 @@ services:
             - LOG_LEVEL=debug
             - JWT_SECRET=mysecreEtKeY@123
             - NODE_SERVER_BASE_URL=http://core:5000/
+            - NODE_SERVER_DID_CREATE_EP=api/did/create_tmp
             - MAIL_HOST=smtp.gmail.com
             - MAIL_PORT=465 
             - MAIL_USERNAME=<YOUR EMAIL>

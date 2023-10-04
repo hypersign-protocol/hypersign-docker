@@ -32,3 +32,24 @@ sh.status()
 ## Deployment Architecture
 
 ![img](mongo-shard-architecture.png)
+
+
+## Dumping 
+
+
+```bash
+sh mongodump.sh
+```
+
+## Restoring
+
+First run your server 
+```bash
+ulimit -n 64000  && rm -rf ~/.mongo && mkdir ~/.mongo && mongod --dbpath ~/.mongo --port 2717
+```
+
+
+```bash
+cd dir # into dir where all files are exported'
+sh mongorestore.sh
+```

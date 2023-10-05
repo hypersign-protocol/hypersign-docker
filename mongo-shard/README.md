@@ -31,7 +31,11 @@ sh.status()
 
 ## Deployment Architecture
 
+### Local
 ![img](mongo-shard-architecture.png)
+
+### GCP
+![img](shard-gcp-architecture.png)
 
 
 ## Dumping 

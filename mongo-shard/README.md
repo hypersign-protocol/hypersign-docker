@@ -57,3 +57,76 @@ ulimit -n 64000  && rm -rf ~/.mongo && mkdir ~/.mongo && mongod --dbpath ~/.mong
 cd dir # into dir where all files are exported'
 sh mongorestore.sh
 ```
+
+
+db.
+##
+
+
+```
+use admin;
+db.createRole(
+   {
+     role: "my-user-role",
+     privileges: [
+       { resource: { cluster: true }, actions: [ "enableSharding", "shardCollection" ] }
+     ],
+     roles: [
+       { role: "readWrite", db: "demo" }
+     ]
+   }
+)
+
+db.createRole(
+   {
+     role: "hypermineDBUserRole", 
+     privileges: [
+         { resource: { cluster: true }, actions:["shardCollection", "enableSharding"] },
+         { resource: { db:"", collection: ""}, actions:["changeStream","collStats","compactStructuredEncryptionData","convertToCapped","createCollection","createIndex","dbHash","dbStats","dropIndex","find","insert","killCursors","listCollections","listIndexes","planCacheRead","remove","update"]},
+     ],
+     roles: ["readWriteAnyDatabase"]
+   }
+)
+
+```
+use admin 
+db.createRole(
+   {
+     role: "hypermineDBUserRole",
+     roles: ['readWriteAnyDatabase']
+   }
+)
+
+## Create a new user
+
+db.auth('fyreUser', 'fyreUser')
+db.dropUser('fyreUser')
+db.users.drop('fyreUser')
+db.users.insertOne({})
+
+```bash
+## Creating role in fyre db
+use fyre
+db.createRole(
+   {
+     role: "fyreDBUserRole", 
+     privileges: [
+         { resource: { db:"fyre", collection: ""}, actions:["changeStream","collStats","compactStructuredEncryptionData","convertToCapped","createCollection","createIndex","dbHash","dbStats","dropIndex","find","insert","killCursors","listCollections","listIndexes","planCacheRead","remove","update"]},
+     ],
+     roles: []
+   }
+)
+
+## Creating user for that role
+use admin
+db.createUser({
+    user: 'fyreUser',
+    pwd: 'fyreUser',
+    roles: [
+        {
+            role: 'fyreDBUserRole', db: 'fyre'
+        }
+    ]
+})
+```
+
